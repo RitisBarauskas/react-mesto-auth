@@ -1,0 +1,17 @@
+.popup__input {
+    padding-bottom: 13px;
+    border: 0;
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    font-size: 14px;
+    font-family: Inter, Arial, sans-serif;
+    line-height: 17px;
+    font-style: normal;
+    font-weight: normal;
+    color: #000;
+}
+
+.popup__input:first-of-type {
+    margin-top: 0;
+}
