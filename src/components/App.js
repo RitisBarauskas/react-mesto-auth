@@ -9,6 +9,7 @@ import EditAvatarPopup from "./EditAvatarPopup";
 import api from '../utils/api';
 import {CurrentUserContext} from '../contexts/CurrentUserContext';
 import AddPlacePopup from "./AddPlacePopup";
+import InfoTooltip from "./InfoTooltip";
 
 
 function App() {
@@ -156,6 +157,7 @@ function App() {
                 isLoading={isLoading}
                 card={cardDelete}
             />
+            <InfoTooltip />
         </div>
       </CurrentUserContext.Provider>
       );
