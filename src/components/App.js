@@ -18,16 +18,18 @@ import ProtectedRoute from "./ProtectedRoute";
 
 
 function App() {
+    const [loggedIn, setLoggedIn] = React.useState(false);
     const [selectedCard, setSelectedCard] = React.useState({name: '', link: ''});
     const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
     const [isDeleteCardPopupOpen, setIsDeleteCardPopupOpen] = React.useState(false);
     const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
     const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
+    const [isInfoTooltipPopupOpen, setIsInfoTooltipPopupOpen] = React.useState(false);
+    const [isInfoTooltipAuth, setIsInfoTooltipAuth] = React.useState(false);
     const [currentUser, setCurrentUser] = React.useState({})
     const [cards, setCards] = React.useState([]);
     const [isLoading, setLoading] = React.useState(false);
     const [cardDelete, setCardDelete] = React.useState({});
-    const loggedIn = true;
 
     React.useEffect(() => {
         api.getInitialData().then(([cards, userData]) => {
@@ -118,6 +120,27 @@ function App() {
             .finally(() => setLoading(false));
     }
 
+    const handleSignIn = (data) => {
+        console.log(data);
+        apiAuth.signIn(data)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+    }
+
+    const handleSignUp = data => {
+        apiAuth.signUp(data)
+            .then((res)=> {
+                console.log(res);
+                if (res.email === data.email){
+                    setIsInfoTooltipAuth(true)
+                } else {
+                    setIsInfoTooltipAuth(false)
+                }
+                setIsInfoTooltipPopupOpen(true);
+            })
+            .catch(err => console.log(err));
+    }
+
     return (
         <CurrentUserContext.Provider value={currentUser}>
             <div className="body">
@@ -125,10 +148,14 @@ function App() {
                     <Header />
                     <Switch>
                         <Route path="/sign-in">
-                            <Login />
+                            <Login
+                                handleSignIn={handleSignIn}
+                            />
                         </Route>
                         <Route path="/sign-up">
-                            <Register />
+                            <Register
+                                handleSignUp={handleSignUp}
+                            />
                         </Route>
                         <ProtectedRoute
                             path="/"
@@ -174,7 +201,10 @@ function App() {
                     isLoading={isLoading}
                     card={cardDelete}
                 />
-                <InfoTooltip />
+                <InfoTooltip
+                    isOpen={isInfoTooltipPopupOpen}
+                    isAuth={isInfoTooltipAuth}
+                />
             </div>
         </CurrentUserContext.Provider>
       );

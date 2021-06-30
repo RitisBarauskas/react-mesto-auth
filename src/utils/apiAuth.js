@@ -12,7 +12,7 @@ class Api {
         return Promise.reject(`Ошибка ${res.status}`);
     }
 
-    signup(data) {
+    signUp(data) {
         return fetch(this._url+`signup`, {
             method: 'POST',
             headers: this._headers,
@@ -21,7 +21,7 @@ class Api {
             .then(this._checkResponse);
     }
 
-    signin(data) {
+    signIn(data) {
         return fetch(this._url+`signin`, {
             method: 'POST',
             headers: this._headers,
