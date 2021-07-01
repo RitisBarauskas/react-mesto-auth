@@ -1,12 +1,32 @@
 import React from 'react';
-function Header() {
+import {Route, Switch, Link} from "react-router-dom";
+
+function Header({email, handleLogout}) {
   return (
     <header className="header">
         <a href="/" className="header__link" target="_self">
-            <div className="header__logo"> </div>
+            <div className="header__logo"></div>
         </a>
         <div className="header__auth">
-            Войти
+            <Switch>
+                <Route exact path="/">
+                        <p className="header__text">{email}</p>
+                        <Link
+                            to="/sign-in"
+                            onClick={handleLogout}
+                            className="header__nav-link header__nav-link_logout"
+                        >Выйти</Link>
+                </Route>
+
+                <Route path="/sign-in">
+                    <Link to="/sign-up" className="header__nav-link">Зарегистрироваться</Link>
+                </Route>
+
+                <Route path="/sign-up">
+                    <Link to="/sign-in" className="header__nav-link">Войти</Link>
+                </Route>
+            </Switch>
+
         </div>
     </header>
   );

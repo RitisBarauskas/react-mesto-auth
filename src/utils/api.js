@@ -84,7 +84,7 @@ const api = new Api({
     url: 'https://mesto.nomoreparties.co/v1/cohort-23/',
     headers: {
         authorization: '67508a95-3c83-40de-953a-884e486cfdce',
-        "content-type": "application/json"
+        "Content-Type": "application/json"
     }
 })
 

@@ -9,7 +9,7 @@ function InfoTooltip({isAuth, isOpen, onClose}) {
             <div className="popup__container popup__container_auth">
                 <img src={isAuth ? ImageAuthOk : ImageAuthNo} className="popup__image-auth" alt="" />
                 <h2 className="popup__title popup__title_auth">
-                    Вы успешно авторизовались!
+                    {isAuth ? 'Все прошло успешно!' : 'Что-то пошло не так'}
                 </h2>
                 <button type="button" className="popup__close" onClick={onClose}> </button>
             </div>

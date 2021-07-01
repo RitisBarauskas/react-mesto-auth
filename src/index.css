@@ -6,7 +6,17 @@
 @import url('./blocks/header/__link/header__link.css');
 @import url('./blocks/header/__logo/header__logo.css');
 @import url('./blocks/header/__auth/header__auth.css');
+@import url('./blocks/header/__nav-link/header__nav-link.css');
+@import url('./blocks/header/__nav-link/_logout/header__nav-link_logout.css');
+@import url('./blocks/header/__text/header__text.css');
 @import url('./blocks/main/main.css');
+@import url('./blocks/sign/sign.css');
+@import url('./blocks/sign/__title/sign__title.css');
+@import url('./blocks/sign/__form/sign__form.css');
+@import url('./blocks/sign/__input/sign__input.css');
+@import url('./blocks/sign/__button/sign__button.css');
+@import url('./blocks/sign/__text/sign__text.css');
+@import url('./blocks/sign/__link/sign__link.css');
 @import url('./blocks/profile/profile.css');
 @import url('./blocks/profile/__group/profile__group.css');
 @import url('./blocks/profile/__avatar/profile__avatar.css');
