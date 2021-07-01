@@ -30,11 +30,13 @@ class Api {
             .then(this._checkResponse);
     }
 
-    getUser(data) {
+    getUser(jwt) {
         return fetch(this._url+`users/me`, {
             method: 'GET',
-            headers: this._headers,
-            body: JSON.stringify(data)
+            headers: {
+                "content-type": "application/json",
+                "Authorization" : `Bearer ${jwt}`
+            }
         })
             .then(this._checkResponse);
     }
