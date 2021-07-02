@@ -4,9 +4,9 @@ import {Route, Switch, Link} from "react-router-dom";
 function Header({email, handleLogout}) {
   return (
     <header className="header">
-        <a href="/" className="header__link" target="_self">
+        <Link to="/" className="header__link">
             <div className="header__logo"></div>
-        </a>
+        </Link>
         <div className="header__auth">
             <Switch>
                 <Route exact path="/">

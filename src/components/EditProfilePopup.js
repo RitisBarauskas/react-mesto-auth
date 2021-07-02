@@ -86,7 +86,7 @@ function EditProfilePopup({isOpen, onClose, onUpdateUser, isLoading}) {
                     id="profession-input"
                     type="text"
                     name="subtitle"
-                    defaultValue={descriptionInput.value || ''}
+                    value={descriptionInput.value || ''}
                     placeholder="Профессия"
                     required
                     minLength="2"
