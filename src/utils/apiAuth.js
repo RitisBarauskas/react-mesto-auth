@@ -1,5 +1,5 @@
 
-class Api {
+class Auth {
     constructor(config) {
         this._url = config.url;
         this._headers = config.headers;
@@ -42,7 +42,7 @@ class Api {
     }
 }
 
-const apiAuth = new Api({
+const apiAuth = new Auth ({
     url: 'https://auth.nomoreparties.co/',
     headers: {
         "content-type": "application/json"
